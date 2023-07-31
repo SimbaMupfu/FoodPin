@@ -13,6 +13,7 @@
 		C1529C042A72B88D00F60B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1529C032A72B88D00F60B5C /* Assets.xcassets */; };
 		C1529C072A72B88D00F60B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1529C052A72B88D00F60B5C /* LaunchScreen.storyboard */; };
 		C1529C0F2A72BBAF00F60B5C /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1529C0E2A72BBAF00F60B5C /* RestaurantTableViewController.swift */; };
+		C1529C112A77D22E00F60B5C /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1529C102A77D22E00F60B5C /* RestaurantTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C1529C062A72B88D00F60B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1529C082A72B88D00F60B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1529C0E2A72BBAF00F60B5C /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		C1529C102A77D22E00F60B5C /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C1529C052A72B88D00F60B5C /* LaunchScreen.storyboard */,
 				C1529C082A72B88D00F60B5C /* Info.plist */,
 				C1529C0E2A72BBAF00F60B5C /* RestaurantTableViewController.swift */,
+				C1529C102A77D22E00F60B5C /* RestaurantTableViewCell.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1529C112A77D22E00F60B5C /* RestaurantTableViewCell.swift in Sources */,
 				C1529BFB2A72B88A00F60B5C /* AppDelegate.swift in Sources */,
 				C1529BFD2A72B88A00F60B5C /* SceneDelegate.swift in Sources */,
 				C1529C0F2A72BBAF00F60B5C /* RestaurantTableViewController.swift in Sources */,
