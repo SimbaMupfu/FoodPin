@@ -32,10 +32,11 @@ class RestaurantTableViewController: UITableViewController {
         snapShot.appendItems(restaurantNames, toSection: .all)
         
         dataSource.apply(snapShot, animatingDifferences: false)
+        tableView.separatorStyle = .none
     }
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, String>{
-        let cellIdentifier = "datacell"
+        let cellIdentifier = "favouritecell"
         let dataSource = UITableViewDiffableDataSource<Section, String>(tableView: tableView, cellProvider: {tableView, indexPath, restaurantName in
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
             cell.nameLabel.text = restaurantName
