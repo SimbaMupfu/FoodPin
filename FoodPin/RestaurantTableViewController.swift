@@ -20,6 +20,9 @@ class RestaurantTableViewController: UITableViewController {
     var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
+    var restaurantIsFavourite = Array(repeating: false, count: 21)
+    var restaurantIsVisited = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    
     lazy var dataSource = configureDataSource()
 
     override func viewDidLoad() {
@@ -48,6 +51,8 @@ class RestaurantTableViewController: UITableViewController {
             (action: UIAlertAction) -> Void in
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
+            
+            self.restaurantIsFavourite[indexPath.row] = true
         })
         optionMenu.addAction(favouriteAction)
         optionMenu.addAction(reserveAction)
@@ -64,6 +69,7 @@ class RestaurantTableViewController: UITableViewController {
             cell.locationLabel.text = self.restaurantLocations[indexPath.row]
             cell.typeLabel.text = self.restaurantTypes[indexPath.row]
             cell.thumbnailImageView.image = UIImage(named: self.restaurantImages[indexPath.row])
+            cell.accessoryType = self.restaurantIsFavourite[indexPath.row] ? .checkmark : .none
             return cell
         }
         )
