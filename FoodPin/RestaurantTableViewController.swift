@@ -44,9 +44,16 @@ class RestaurantTableViewController: UITableViewController {
             self.present(alertMessage, animated: true, completion: nil)
         }
         let reserveAction = UIAlertAction(title: "Reserve a table", style: .default, handler: reserveActionHandler)
+        let favouriteAction = UIAlertAction(title: "Mark as favourite", style: .default, handler: {
+            (action: UIAlertAction) -> Void in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        })
+        optionMenu.addAction(favouriteAction)
         optionMenu.addAction(reserveAction)
         optionMenu.addAction(cancelAction)
         present(optionMenu, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, String>{
