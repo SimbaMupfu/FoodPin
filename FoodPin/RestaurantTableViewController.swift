@@ -61,6 +61,7 @@ class RestaurantTableViewController: UITableViewController {
             
             self.restaurantIsFavourite[indexPath.row] = true
         })
+        
         optionMenu.addAction(favouriteAction)
         optionMenu.addAction(reserveAction)
         optionMenu.addAction(cancelAction)

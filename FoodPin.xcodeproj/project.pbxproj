@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12FCE712A8B9F6800256CA2 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12FCE702A8B9F6800256CA2 /* Restaurant.swift */; };
 		C1529BFB2A72B88A00F60B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1529BFA2A72B88A00F60B5C /* AppDelegate.swift */; };
 		C1529BFD2A72B88A00F60B5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1529BFC2A72B88A00F60B5C /* SceneDelegate.swift */; };
 		C1529C022A72B88A00F60B5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1529C002A72B88A00F60B5C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C12FCE702A8B9F6800256CA2 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		C1529BF72A72B88A00F60B5C /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1529BFA2A72B88A00F60B5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1529BFC2A72B88A00F60B5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				C1529C082A72B88D00F60B5C /* Info.plist */,
 				C1529C0E2A72BBAF00F60B5C /* RestaurantTableViewController.swift */,
 				C1529C102A77D22E00F60B5C /* RestaurantTableViewCell.swift */,
+				C12FCE702A8B9F6800256CA2 /* Restaurant.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12FCE712A8B9F6800256CA2 /* Restaurant.swift in Sources */,
 				C1529C112A77D22E00F60B5C /* RestaurantTableViewCell.swift in Sources */,
 				C1529BFB2A72B88A00F60B5C /* AppDelegate.swift in Sources */,
 				C1529BFD2A72B88A00F60B5C /* SceneDelegate.swift in Sources */,
