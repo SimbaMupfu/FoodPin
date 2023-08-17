@@ -68,6 +68,30 @@ class RestaurantTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let restaurant = self.dataSource.itemIdentifier(for: indexPath)
+        else{
+            return UISwipeActionsConfiguration()
+        }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: {(action, sourceView, completionHandler) in
+            var snapshot = self.dataSource.snapshot()
+            snapshot.deleteItems([restaurant])
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+            completionHandler(true)
+        })
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share", handler: {(action, sourceView, completionHandler) in
+            let defaultText = "Just checking in at " + restaurant.name
+            let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+            completionHandler(true)
+        })
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        return swipeConfiguration
+    }
+    
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant>{
         let cellIdentifier = "favouritecell"
         let dataSource = RestaurantDiffableDataSource(tableView: tableView, cellProvider: {tableView, indexPath, restaurant in
