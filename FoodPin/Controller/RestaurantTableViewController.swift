@@ -83,10 +83,27 @@ class RestaurantTableViewController: UITableViewController {
         
         let shareAction = UIContextualAction(style: .normal, title: "Share", handler: {(action, sourceView, completionHandler) in
             let defaultText = "Just checking in at " + restaurant.name
-            let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            let activityController: UIActivityViewController
+            if let imageToShare = UIImage(named: restaurant.image){
+                activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            }else{
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
+            if let popoverController = activityController.popoverPresentationController{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
             self.present(activityController, animated: true, completion: nil)
             completionHandler(true)
         })
+        
+        deleteAction.backgroundColor = UIColor.systemRed
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        shareAction.backgroundColor = UIColor.systemOrange
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
         return swipeConfiguration
