@@ -57,7 +57,7 @@ class RestaurantTableViewController: UITableViewController {
         let favouriteAction = UIAlertAction(title: favouriteActionTitle, style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
-            cell.accessoryType = .checkmark
+            cell.favouriteImageView.isHidden = self.restaurants[indexPath.row].isFavourite
             self.restaurants[indexPath.row].isFavourite = self.restaurants[indexPath.row].isFavourite ? false : true
         })
         
@@ -109,15 +109,30 @@ class RestaurantTableViewController: UITableViewController {
         return swipeConfiguration
     }
     
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favouriteAction = UIContextualAction(style: .destructive, title: "", handler: {(action, sourceView, completionHandler) in
+            let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+            cell.favouriteImageView.isHidden = self.restaurants[indexPath.row].isFavourite
+            self.restaurants[indexPath.row].isFavourite = self.restaurants[indexPath.row].isFavourite ? false : true
+            completionHandler(true)
+        })
+        
+        favouriteAction.backgroundColor = UIColor.systemYellow
+        favouriteAction.image = UIImage(systemName: self.restaurants[indexPath.row].isFavourite ? "heart.slash.fill" : "heart.fill")
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [favouriteAction])
+        return swipeConfiguration
+    }
+    
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant>{
-        let cellIdentifier = "favouritecell"
+        let cellIdentifier = "datacell"
         let dataSource = RestaurantDiffableDataSource(tableView: tableView, cellProvider: {tableView, indexPath, restaurant in
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
             cell.nameLabel.text = restaurant.name
             cell.locationLabel.text = restaurant.location
             cell.typeLabel.text = restaurant.type
             cell.thumbnailImageView.image = UIImage(named: restaurant.image)
-            cell.accessoryType = restaurant.isFavourite ? .checkmark : .none
+            cell.favouriteImageView.isHidden = restaurant.isFavourite ? false : true
             return cell
         }
         )
